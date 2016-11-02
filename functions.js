@@ -2,28 +2,23 @@ function runningLogger(){
   console.log('I am running');
 }
 
-function multiplyByTen(num){
-  result = num * 10;
-  console.log(result)
-  return result
+function multiplyByTen(numb){
+  return numb * 10;
 }
 
 function stringReturnOne(){
-  var stringOne = "I am returning One"
-  return stringOne
+  return "I am returning One"
 }
 
 function stringReturnTwo(){
-  var stringTwo = "I am returning Two"
-  return stringTwo
+  return "I am returning Two"
 }
 
 
 
 function caller(callback){
   if (typeof(callback) == 'function') {
-    console.log('Running callback')
-    return callback()
+    callback()
   }
   else{
     return console.log('Type of callback is ' + typeof(callback) + ' so nothing returned');
@@ -33,7 +28,7 @@ function caller(callback){
 runningLogger();
 // Logs 'I am running'
 
-multiplyByTen(5);
+console.log(multiplyByTen(5));
 // Logs 50
 
 console.log(stringReturnOne())
@@ -45,13 +40,32 @@ console.log(stringReturnTwo())
 caller(runningLogger)
 // Runs Callback function
 
-caller(multiplyByTen(5));
-// Does NOT run callback function, see it as number since param is number
 
-var five = 5;
-var test = multiplyByTen(five);
-caller(test);
-// Does NOT run callback function, see it as number since param is number
 
-console.log(typeof(multiplyByTen()));
-// logs NaN (not a number) and number
+function myDoubleConsoleLog(paramOne, paramTwo){
+  if (typeof(paramOne && paramTwo) === 'function'){
+    console.log(paramOne(), paramTwo());
+  }
+  else {
+    console.log(typeof(paramOne));
+    console.log('Both params not functions')
+  }
+}
+
+myDoubleConsoleLog(stringReturnOne, stringReturnTwo);
+
+function caller2(param){
+  console.log("Starting");
+  setTimeout(function(){
+    if (typeof(param) == 'function'){
+      param(stringReturnOne, stringReturnTwo);
+    }
+    console.log("ending?");
+  }, 2000);
+
+  return "Interesting"
+}
+// caller2(myDoubleConsoleLog);
+
+console.log(caller2(myDoubleConsoleLog));
+// Doing console to check  to see if interesting is return and it is
