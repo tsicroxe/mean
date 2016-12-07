@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Bark Bark</h1>
+    <table>
+      <thead>
+        <th>Breed</th>
+        <th>Life Span</th>
+        <th>Barking</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <% for (idx in dogs) { %>
+        <tr>
+          <td><%= dogs[idx].breed %></td>
+          <td><%= dogs[idx].life_span %></td>
+          <td><%= dogs[idx].barking %></td>
+          <td>
+            <a href="/dogs/edit/<%=dogs[idx]._id %>">Edit</a>
+            <form method='post' action="/dogs/destroy/<%=dogs[idx]._id %>">
+              <button>Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <form action='/dogs/new' method='post'>
+      <input type='submit' value='Add a dog' />
+    </form>
+  </body>
+</html>

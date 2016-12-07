@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'app'>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src = 'bower_components/angular/angular.js'></script>
+  <script type='text/javascript'>
+  var app = angular.module('app', []);
+  app.controller('foodController', ['$scope', function($scope){
+    //printController will show the current $scope
+    $scope.foodList = []; // your name!
+
+    $scope.printController = function(){
+      console.log($scope);
+    }
+    $scope.addFood = function(favorite_food){
+      $scope.foodList.push(favorite_food);
+      $scope.favorite_food='';
+    }
+
+  }]);
+  </script>
+</head>
+<body>
+    <div ng-controller = "foodController" id = "divController">
+      <form ng-submit='addFood(favorite_food)'>
+        <label for='favorite_food'>Favorite Food: </label>
+        <input type='text' name='favorite_food' ng-model='favorite_food'/>
+        <input type='submit' value='Add food'>
+      </form>
+      <p ng-if='favorite_food'>Typing: {{favorite_food}}</p>
+
+      <div id='food_list'>
+        <ul>
+          <label for='filter'>Filter:</label>
+          <input type='text' name='filter' ng-model="searchFood" />
+          <li ng-repeat='food in foodList | filter:searchFood'>{{food}}</li>
+        </ul>
+      </div>
+    </div>
+
+</body>
+</html>
