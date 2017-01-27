@@ -1,0 +1,26 @@
+<section ng-controller='teamsController as TC'>
+
+  <article>
+    <form name='newTeam' ng-submit='create(team)'>
+      Team Name: <input type='text' name='name' ng-model='team.name' />
+      <input type='submit' value='Add Team' />
+    </form>
+  </article>
+
+  <article class=''>
+    <table>
+      <thead>
+        <th>Team id</th>
+        <th>Team Name</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat='team in teams'>
+          <td ng-bind='team._id'></td>
+          <td ng-bind='team.name'></td>
+          <td><button ng-click='delete(team)'>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
