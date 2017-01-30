@@ -26,7 +26,6 @@ app.controller('playersController', ['$scope','playersFactory', function($scope,
 	};
 
 	// Deletes a player. Takes in form data from index.html and passes to playersFactory
-
    $scope.delete = function(player){
 		console.log("deleing a player ", player);
 		// var conf = confirm("Are you sure you want to delete "+ player._id);
@@ -38,5 +37,4 @@ app.controller('playersController', ['$scope','playersFactory', function($scope,
 			});
 		}
 	};
-
 }]);

@@ -31,10 +31,13 @@ app.factory('playersFactory', ['$http', function($http) {
       $http.post('/players', player).then(function(data){
         console.log("data returned from create new player from server", data.data);
         if (typeof(callback) === 'function'){
+
+          // PROBLEM AREA
           // add new player to the players array? - it updates when comes back to the root route
           console.log('Returned data type should be function and is a -> '+ typeof(callback));
           console.log('data.data' + data.data.player._id);
           console.log(data.data.player.name); // Undefined but should be name
+
           callback(data.data);
 
         }
@@ -47,21 +50,18 @@ app.factory('playersFactory', ['$http', function($http) {
 
       $http.delete('/players/'+player._id, player).then(function(data){
         console.log("data from server from delete ", data.data);
-        if (typeof(callback) === 'function'){
-          // I should return all players and update players array
 
+        if (typeof(callback) === 'function'){
           $http.get('/players').then(function(data){
             console.log('data from index factory',data.data);
             players = data.data;
             callback(players);
           });
-
         }
       });
     };
 
 
-    // Sometimes you might not want to make a DB call, and just get the information stored in the factory.
     this.getPlayers = function(callback){
       callback(players);
     };
