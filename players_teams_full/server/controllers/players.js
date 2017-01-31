@@ -77,15 +77,15 @@ var PlayersController = {
 
       addPlayerToTeam: function(req, res){
             console.log(req.params.playerObject, req.params.teamObject)
-        Player.findOneandUpdate({req.params.playerObject._id}, req.params.teamObject)
-        .then(function(){
-             res.json(true);
-        })
-        .catch(function(err){
-             console.log(err);
-             res.status(500);
-             res.json(err);
-        })
+      //   Player.findOneandUpdate({req.params.playerObject._id}, req.params.teamObject)
+      //   .then(function(){
+      //        res.json(true);
+      //   })
+      //   .catch(function(err){
+      //        console.log(err);
+      //        res.status(500);
+      //        res.json(err);
+      //   })
 
       }
 }
