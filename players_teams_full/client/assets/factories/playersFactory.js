@@ -58,8 +58,10 @@ app.factory('playersFactory', ['$http', function($http) {
     };
 
     this.addPlayerToTeam = function(newAssoc){
-      console.log('in playersFactory adding player to team', newAssoc)
-      $http.post('/associations', newAssoc)
+      console.log(newAssoc.teamObject);
+      console.log(newAssoc.playerObject)
+      console.log('Sending newAssoc to routes', newAssoc)
+      $http.put('/associations', newAssoc)
       .then(function(response){
         var player = response.data.player;
         var team = response.data.team;
