@@ -1,10 +1,6 @@
 console.log('Players Factory');
 app.factory('playersFactory', ['$http', function($http) {
-  var players = [
-    {name:"Bob"},
-    {name:"Aaron"},
-    {name:"Sue"}
-  ];
+  var players = [];
   var player = {};
 
   // Function for our playerFactory constructor
@@ -61,11 +57,28 @@ app.factory('playersFactory', ['$http', function($http) {
       });
     };
 
+    this.addPlayerToTeam = function(newAssoc){
+      console.log('in playersFactory adding player to team', newAssoc)
+      $http.post('/associations', newAssoc)
+      .then(function(response){
+        var player = response.data.player;
+        var team = response.data.team;
+        player.team = team;
+        console.log('rsponse data', response);
+        if(response.data.success){
+          playersFactory.players.push(player)
+        }
+      })
+    }
 
     this.getPlayers = function(callback){
+      console.log('callback function with players')
+
       callback(players);
     };
+
     this.getPlayer = function(callback){
+        console.log('callback function with player')
         callback(player);
     };
   }

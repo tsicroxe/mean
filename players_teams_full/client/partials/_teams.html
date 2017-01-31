@@ -2,8 +2,8 @@
 
   <article>
     <form name='newTeam' ng-submit='create(team)'>
-      Team Name: <input type='text' name='name' ng-model='team.name' />
-      <input type='submit' value='Add Team' />
+      Team Name: <input type='text' name='name' ng-model='team.name' required/>
+      <input type='submit' ng-disabled='create.$invalid' value='Add Team' />
     </form>
   </article>
 

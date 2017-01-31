@@ -1,12 +1,8 @@
 console.log('Teams Factory');
 app.factory('teamsFactory', ['$http', function($http) {
   // constructor for our factory
-  var teams = [
-    {name:"Seahawks"},
-    {name:"49ers"},
-    {name:"Honeybadgers"}
-  ];
 
+  var teams = [];
   var team = {};
 
   function TeamsFactory(){
@@ -68,12 +64,18 @@ app.factory('teamsFactory', ['$http', function($http) {
     };
     // Sometimes you might not want to make a DB call, and just get the information stored in the factory.
     this.getTeams = function(callback){
+            console.log('callback function with teams')
       callback(teams);
     };
     this.getTeam = function(callback){
+            console.log('calback function with team')
         callback(team);
     };
   }
   console.log(new TeamsFactory());
   return new TeamsFactory();
 }]);
+
+function handleErrors(err){
+  console.log(err);
+}

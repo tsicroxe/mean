@@ -2,8 +2,8 @@
 
   <article>
     <form name='newPlayer' ng-submit='create(player)'>
-      Player Name: <input type='text' name='name' ng-model='player.name' />
-      <input type='submit' value='Add Player' />
+      Player Name: <input type='text' name='name' ng-model='player.name' required/>
+      <input type='submit' ng-disabled='create.$invalid' value='Add Player' />
     </form>
   </article>
 

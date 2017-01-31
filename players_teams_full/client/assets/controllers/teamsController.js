@@ -14,11 +14,13 @@ app.controller('teamsController', ['$scope','teamsFactory', function($scope, tea
 
 
 
-   $scope.create = function(){
-      console.log('running teams create function in teamsController');
-      teamsFactory.create('$scope.newTeam')
+   $scope.create = function(team){
+      console.log('running teams create function in teamsController ', team);
+      teamsFactory.create(team, function(data){
+        console.log('added enw team ', data)
       index();
-      $scope.newTeam = {}
+      $scope.team = {}
+    });
    }
 
    $scope.delete = function(team){
