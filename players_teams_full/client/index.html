@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- Begin Bower Components -->
+    <script src="angular/angular.js" charset="utf-8"></script>
+    <script src="angular-route/angular-route.js" charset="utf-8"></script>
+    <!-- End Bower Components -->
+
+    <script src="assets/app.js" charset="utf-8"></script>
+
+    <script src="assets/controllers/playersController.js" charset="utf-8"></script>
+    <script src="assets/controllers/teamsController.js" charset="utf-8"></script>
+    <script src="assets/controllers/associationsController.js" charset="utf-8"></script>
+
+
+    <script src="assets/factories/playersFactory.js" charset="utf-8"></script>
+    <script src="assets/factories/teamsFactory.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <!-- Links to your new and edit pages here.  Review Angular Partials if you've forgotten ) -->
+    <!-- not so subtle hint: ng-view ??? -->
+    <a href='#!/players'>Players</a>
+    <a href='#!/teams'>Teams</a>
+    <a href='#!/associations'>Associations</a>
+
+    <div ng-view=''>
+
+    </div>
+  </body>
+</html>
