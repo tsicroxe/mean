@@ -1,0 +1,29 @@
+<!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
+
+<section ng-controller='newController as NC'>
+  <form name='newFriend' ng-submit='create()'>
+    Friend Name: <input type='text' name='name' ng-model='name'/>
+    Favorite Language: <input type='text' name='favoriteLanguage' ng-model='favoriteLanguage'/>
+    <input type='submit' value='submit' />
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Friend ID</th>
+        <th>Friend Name</th>
+        <th>Favorite Language</th>
+        <th>Actions</th>
+      </td>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat='friend in friends'>
+
+      <td>{{friend._id}} </td>
+      <td>{{friend.name}}</td>
+      <td>{{friend.favoriteLanguage}}</td>
+      <td><button ng-click="console.log('yes')" ng-submit='delete()' id='friend._id' type="button" name="delete">Delete</button></td>
+    </tr>
+  </tbody>
+  </table>
+</section>

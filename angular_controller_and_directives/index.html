@@ -13,6 +13,7 @@
     $scope.printController = function(){
       console.log($scope);
     }
+
     $scope.addFood = function(favorite_food){
       $scope.foodList.push(favorite_food);
       $scope.favorite_food='';
@@ -23,6 +24,7 @@
 </head>
 <body>
     <div ng-controller = "foodController" id = "divController">
+      {{foodList}}
       <form ng-submit='addFood(favorite_food)'>
         <label for='favorite_food'>Favorite Food: </label>
         <input type='text' name='favorite_food' ng-model='favorite_food'/>

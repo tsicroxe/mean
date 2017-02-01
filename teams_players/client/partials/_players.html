@@ -1,0 +1,26 @@
+<section ng-init='getPlayers()'>
+  <article class=''>
+    <form name='newPlayer' ng-submit='addPlayer()' novalidate>
+      Name: <input type='text' name='name' ng-model='player.name' required/>
+      <button ng-disabled='newPlayer.$invalid'>Add Player</button>
+    </form>
+  </article>
+
+  <hr>
+  <article class=''>
+  <table>
+    <thead>
+      <tr>
+        <td>Player Name</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='player in players'>
+        <td ng-bind='player.name'></td>
+        <td><button ng-click='removePlayer()' ng-disabled='true'>Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </article>
+</section>

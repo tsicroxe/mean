@@ -1,0 +1,16 @@
+<section ng-init='getUsers()'>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Show</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat='user in users'>
+        <td>user.name</td>
+      </tr>
+    </tbody>
+  </table>
+  <a href='#!/new'>New Friend</a>
+</section>

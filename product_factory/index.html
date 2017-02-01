@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'app'>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src = 'bower_components/angular/angular.js'></script>
+  <script src='app.js' charset='utf-8'></script>
+</head>
+<body>
+    <div ng-controller = "ProductController as PC" id = "divController">
+      <form name='newProduct' ng-submit='addProduct()'>
+        Product Name: <input type='text' name='name' />
+        Product Price: <input type='text' name'price' />
+        <input type="submit" id="submit" value="Submit" />
+      </form>
+      <table>
+        <tr ng-repeat='product in products'>
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+
+
+</body>
+</html>

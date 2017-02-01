@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src = 'bower_components/angular/angular.js'></script>
+    <script type='text/javascript'>
+      var app = angular.module('app', []);
+      app.controller('userController', ['$scope', function($scope){
+
+        $scope.userList = [];
+        // $scope.first_name = '';
+        // $scope.last_name = '';
+        // $scope.fav_language = '';
+
+        $scope.addUser = function(first_name, last_name, fav_language){
+          console.log('reached adduser')
+          console.log(first_name);
+          console.log(last_name);
+          console.log(fav_language);
+          $scope.userList.push({
+            first_name: first_name,
+            last_name: last_name,
+            fav_language: fav_language
+          })
+          console.log($scope.userList)
+        }
+
+        $scope.delete = function($index){
+          console.log($index)
+          $scope.userList.splice($index, 1);
+        }
+
+        $scope.printIndex = function(val){
+          console.log(val);
+        }
+
+      }]);
+    </script>
+  </head>
+  <body ng-controller='userController'>
+    <form ng-submit='addUser(first_name, last_name, fav_language)'>
+      <label for='first_name'>First Name: </label>
+      <input type='text' name='first_name' ng-model='first_name'/>
+      <label for='last_name'>Last Name: </label>
+      <input type='text' name='Last_name' ng-model='last_name'/>
+      <label for='fav_language'>Favorite Language: </label>
+      <input type='text' name='fav_language' ng-model='fav_language'/>
+      <input type='submit' value='Create User' />
+    </form>
+    <table>
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Fav Language</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat='user in userList track by $index'>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.fav_language}}</td>
+            <td><button ng-click = 'delete($index)'>Delete User</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
