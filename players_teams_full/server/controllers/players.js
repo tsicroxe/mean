@@ -76,8 +76,11 @@ var PlayersController = {
       },
 
       addPlayerToTeam: function(req, res){
+            console.log('this is the team object => ', req.body.teamObject)
+            console.log('this is the team object id => ', req.body.teamObject._id)
+
             console.log('this is the player object => ', req.body.playerObject)
-            console.log('this is the player object id => ', req.body.playerObject)
+            console.log('this is the player object id => ', req.body.playerObject._id)
 
 
       //   Player.findOneandUpdate({_id: req.params.playerObject._id})
