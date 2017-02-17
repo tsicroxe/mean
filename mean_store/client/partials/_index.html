@@ -1,0 +1,41 @@
+<section ng-controller='indexController as ic' id='search_bar'>
+  <div class='index_search_bar'>
+  Search bar
+  <label>Filter: <input type='text'/></label>
+</div>
+
+  <div class='main'>
+
+    <div class='items' >
+      <div class='product_display' ng-repeat='product in products'>
+        <h3>{{product.name}}</h3>
+        <img ng-show="product.url !== undefined" ng-src="{{product.url}}" alt="Product Image" class='thumbnail product-url'>
+        <p>{{product.description}}</p>
+        <p>({{product.quantity}} left)</p>
+      </div>
+    </div>
+
+    <div class ='recentOrders'>
+      <h1>Recent orders</h1>
+      <ul>
+        <li ng-repeat='order in recentOrders track by $index'>
+        <p>{{order._customer.name}} purchased {{ order.quantity }} {{ order._product.name }}... <span am-time-ago="order.created_at | amParse:'YYYY.MM.DD HH:mm:ss'"></span></p>
+        </li>
+      </ul>
+      <a href="#!/orders">show all orders...</a>
+
+    </div>
+
+    <div class ='newCustomers'>
+      <h1>Newest Customers</h1>
+      <ul>
+        <li ng-repeat='customer in recentCustomers track by $index'>
+        <p>{{customer.name}} joined <span am-time-ago="customer.created_at | amParse:'YYYY.MM.DD HH:mm:ss'"></span></p>
+        </li>
+      </ul>
+      <a href="#!/customers">show all customers...</a>
+    </div>
+</div>
+
+
+</section>

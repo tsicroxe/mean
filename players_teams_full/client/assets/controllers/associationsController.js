@@ -51,14 +51,14 @@ teamsFactory.getTeams(function(teams){
 
 //Pass the player index and team name to create association
 $scope.addPlayerToTeam = function(newAssoc){
-   console.log($scope.newAssoc)
-   playersFactory.addPlayerToTeam($scope.newAssoc);
+  console.log(typeof(newAssoc))
+   playersFactory.addPlayerToTeam(newAssoc)
 }
 
 //Pass $index to PlayerFactory to remove the player's team
-$scope.removePlayerFromTeam = function(changeThisVariable){
-  console.log(changeThisVariable)
-   playersFactory.removePlayerFromTeam(changeThisVariable);
+$scope.removePlayerFromTeam = function(player){
+  console.log('removing player fromt eam > ', player)
+   playersFactory.removePlayerFromTeam(player);
 }
 
 

@@ -58,18 +58,36 @@ app.factory('playersFactory', ['$http', function($http) {
     };
 
     this.addPlayerToTeam = function(newAssoc){
-      console.log(newAssoc.teamObject);
-      console.log(newAssoc.playerObject)
-      console.log('Sending newAssoc to routes', newAssoc)
-      $http.put('/associations', newAssoc)
-      .then(function(response){
-        var player = response.data.player;
-        var team = response.data.team;
-        player.team = team;
-        console.log('rsponse data', response);
-        if(response.data.success){
-          playersFactory.players.push(player)
+      newAssoc = {
+        playerId: newAssoc.playerObject._id,
+        teamId: newAssoc.teamObject._id,
         }
+        console.log('Sending newAssoc to routes', newAssoc)
+      $http.post('/associations', newAssoc)
+      .then(function(response){
+        // var player = response.data.player;
+        // var team = response.data.team;
+        // player.team = team;
+        console.log('response data', response);
+        if(response.data.success){
+          // playersFactory.players.push(player)
+          console.log('successful!!!!', player);
+          players.push(player);
+          console.log(players);
+          //Am I missing a callback?
+        }
+      })
+    };
+
+    this.removePlayerFromTeam = function(player){
+      // console.log('in factory doing removeplayerfromteam > ', playerId);
+      console.log(typeof(player))
+      console.log(player);
+      console.log(player._id)
+      playerId = player
+      $http.delete('/associations/'+player, playerId)
+      .then(function(response){
+        // console.log('response from players', response);
       })
     }
 

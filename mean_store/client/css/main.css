@@ -1,0 +1,57 @@
+
+
+html {
+  box-sizing: border-box;
+}
+
+.index_search_bar{
+  width: 20%;
+  height: 600px;
+  display: inline-block;
+  margin-left: 2%;
+  vertical-align: top;
+  /*background-color: pink;*/
+}
+.main{
+  display: inline-block;
+  width: 75%;
+}
+
+.product_display{
+  display: inline-block;
+  width: 150px;
+  /*vertical-align: top;*/
+  margin-left: 15px;1
+}
+
+.newCustomers{
+  width: 70%;
+  /*background-color: teal;*/
+}
+
+.recentOrders{
+  width: 70%;
+  vertical-align: top;
+  /*background-color: yellow;*/
+}
+.items{
+  width: 70%;
+  /*background-color: grey;*/
+}
+
+.product-panel {
+  height: 175px;
+  overflow: scroll;
+}
+
+.panel-body img {
+  width: 100%;
+}
+
+table.customer {
+  margin-top: 40px;
+}
+
+input.filter {
+  margin-top: 40px;
+}

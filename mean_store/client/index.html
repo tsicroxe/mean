@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Begin Bower Components -->
+      <script src="angular/angular.js" charset="utf-8"></script>
+      <script src="angular-route/angular-route.js" charset="utf-8"></script>
+      <script src="moment/moment.js" charset="utf-8"></script>
+      <script src="angular-moment/angular-moment.js" charset="utf-8"></script>
+      <!-- End Bower Components -->
+
+      <script src="assets/app.js" charset="utf-8"></script>
+
+      <script src="assets/factories/storeFactory.js" charset="utf-8"></script>
+      <script src="assets/controllers/indexController.js" charset="utf-8"></script>
+      <script src="assets/controllers/customerController.js" charset="utf-8"></script>
+      <script src="assets/controllers/productController.js" charset="utf-8"></script>
+      <script src="assets/controllers/orderController.js" charset="utf-8"></script>
+
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  </head>
+  <body>
+
+    <ul>
+      <a href='#!/'>Dashboard</a>
+      <a href='#!/products'>Products</a>
+      <a href='#!/orders'>Orders</a>
+      <a href='#!/customers'>Customers</a>
+      <a href='#!/settings'>Settings</a>
+
+
+    </ul>
+
+    <div ng-view=''>
+    </div>
+  </body>
+</html>

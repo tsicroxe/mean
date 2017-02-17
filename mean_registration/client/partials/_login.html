@@ -1,0 +1,18 @@
+<script type='text/javascript'>
+  console.log('hitting partial')
+</script>
+
+<article ng-controller='usersController as UC'>
+  <form name='login_form' ng-submit='login(login_data)'>
+      <label>Username: <input type='text' ng-model='login_data.user_name' required/></label>
+        <label>Password: <input type='text' ng-model='login_data.password' required/></label>
+
+      <input type='submit' value='Login' />
+      {{errors.message}}
+  </form>
+
+  <div id='users' ng-repeat='user in users'>
+    {{user.first_name}}
+  </div>
+
+</article>

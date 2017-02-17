@@ -7,6 +7,7 @@ module.exports = function(){
 }
 var mongoose = require('mongoose')
 var Player = mongoose.model('Player');
+var Team = mongoose.model('Team')
 var path = require('path');
 
 
@@ -76,23 +77,31 @@ var PlayersController = {
       },
 
       addPlayerToTeam: function(req, res){
-            console.log('this is the team object => ', req.body.teamObject)
-            console.log('this is the team object id => ', req.body.teamObject._id)
+            console.log('playerId > ', req.body.playerId);
+            console.log('teamId > ', req.body.teamId);
 
-            console.log('this is the player object => ', req.body.playerObject)
-            console.log('this is the player object id => ', req.body.playerObject._id)
+            Player.findById({_id: req.body.playerId})
+              .then(function(player) {
+                    console.log('Found player for updating', player)
+                    player.team = req.body.teamId
+                    console.log(player);
+                    player.save();
+                    console.log('sending response with player back')
+                    res.json({success: true, player});
 
+              })
+              .catch(console.error)
 
-      //   Player.findOneandUpdate({_id: req.params.playerObject._id})
-      //   .then(function(){
-      //        res.json(true);
-      //   })
-      //   .catch(function(err){
-      //        console.log(err);
-      //        res.status(500);
-      //        res.json(err);
-      //   })
+      },
 
+      removePlayerFromTeam: function(req, res){
+            console.log('removeplayerfromteam req.body', req);
+            // Player.findById({_id: req.body.player._id})
+      //       .then(function(player){
+      //             res.json({success: true, player})
+      //             console.log('done removed')
+      //       })
+      //       .catch(console.error)
       }
 }
 

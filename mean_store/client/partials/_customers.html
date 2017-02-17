@@ -1,0 +1,24 @@
+<section ng-controller='customerController as cc'>
+  <form name='createNewCustomer' ng-submit='createCustomer(newCustomer)'>
+    <h2>Add a new customer</h2>
+    <label>Customer name: <input type='text' name='name' ng-model='newCustomer.name' /></label>
+    <input type='submit' value='Add' />
+  </form>
+  {{errors.message}}
+  <table>
+    <thead>
+      <th width='200'>Customer Name</th>
+      <th width='200'>Date Created</th>
+      <th>Actions</th>
+    </thead>
+    <label>Filter: <input type='text' ng-model='searchCustomers' /></label>
+    <tbody>
+      <tr ng-model='searchCustomers' ng-repeat='customer in customers | filter:searchCustomers'>
+        <td ng>{{customer.name}}</td>
+        <td>{{customer.created_at | date: "MMM. dd, yyyy"}}</td>
+        <td><button ng-click='deleteCustomer(customer._id)'>Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>

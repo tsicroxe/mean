@@ -5,12 +5,12 @@
 
    <form>
       <!--ng-init ensures that the dropdown will show the first value by default-->
-      <select ng-model="newAssoc.playerObject">
+      <select ng-model="newAssoc.playerObject" ng-options='player as player.name for player in players'>
          <!--Each option displays the player's name, but has a value of that player's index-->
-         <option ng-repeat="player in players" value={{player}} ng-bind="player.name"></option>
+        <!-- <option ng-repeat="player in players" value={{player}} ng-bind="player.name"></option> -->
       </select>
-      <select ng-model="newAssoc.teamObject">
-         <option ng-repeat="team in teams" value={{team}} ng-bind="team.name"></option>
+      <select ng-model="newAssoc.teamObject" ng-options='team as team.name for team in teams'>
+         <!--<option ng-repeat="team in teams" value={{team}} ng-bind="team.name"></option> -->
       </select>
       <!--When the button is clicked, run the addPlayerToTeam function-->
       <button type="submit" ng-click="addPlayerToTeam(newAssoc)">Assign Player To Team</button>
@@ -24,9 +24,9 @@
       </tr>
       <tr ng-repeat="player in players">
          <td ng-bind="player.name"></td>
-         <td ng-bind="player.team"></td>
+         <td ng-bind="player.team.name"></td>
          <!--When the button is clicked, run the removePlayerFromTeam function-->
-         <td><button ng-click="removePlayerFromTeam(player)">Clear Assignment</button></td>
+         <td><button ng-click="removePlayerFromTeam(remAssoc.player._id)">Clear Assignment</button></td>
       </tr>
    </table>
 </div>

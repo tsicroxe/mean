@@ -18,6 +18,6 @@ module.exports = function(app){
   app.delete('/teams/:id', teams.delete);
   //
 
-  app.put('/associations', players.addPlayerToTeam)
-
+  app.post('/associations', players.addPlayerToTeam)
+  app.delete('/associations/:id', players.removePlayerFromTeam)
 }

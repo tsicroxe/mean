@@ -1,0 +1,27 @@
+<section ng-controller='usersController'>
+
+  Register to continue
+
+  <form name='registration' ng-submit='register(registration_data)'>
+      <label>First Name: <input type='text' ng-model='registration_data.first_name' required/></label>
+        {{errors.first_name.message}}
+      <label for="">Last Name: <input type='text' ng-model='registration_data.last_name' required/></label>
+        {{errors.last_name.message}}
+      <label>Username: <input type='text' ng-model='registration_data.user_name' required/></label>
+        {{errors.user_name.message}}
+        <label>Password: <input type='password' type='hidden' ng-model='registration_data.password' required/></label>
+        {{errors.password.message}}
+      <label>Email: <input type='text' ng-model='registration_data.email' required/></label>
+        {{errors.email.message}}
+      <label>Date of Birth: <input type='date' ng-model='registration_data.birthdate' required/></label>
+        {{errors.dob.message}}
+
+      <input type='submit' value='Submit' />
+  </form>
+
+
+<p>
+  Already a member? <a href='#!/login'>Login</a>
+</p>
+
+</section>

@@ -1,0 +1,40 @@
+<section ng-controller='orderController as oc'>
+
+  <form ng-submit='createOrder(newOrder)'>
+    <label>Customer:
+      <select ng-model="newOrder.customerId">
+        <option id='customer' ng-repeat="customer in customers" value="{{customer._id}}">{{customer.name}}</option>
+      </select>
+    </label>
+
+    <label>Product:
+      <select ng-model="newOrder.productId">
+        <option id='product' ng-repeat="product in products" value="{{product._id}}">{{product.name}}</option>
+      </select>
+    </label>
+    <label>Quantity: <input type='text' ng-model='newOrder.quantity'/></label>
+
+    <input type='submit' value='Create Order' />
+
+  </form>
+  <div id='errors' ng-bind='errors.message'>
+
+  </div>
+
+  <table border="1">
+     <tr>
+        <td>Name</td>
+        <td>Product</td>
+        <td>Quantity</td>
+        <td>Date</td>
+
+     </tr>
+     <tr ng-repeat="order in orders">
+        <td ng-bind="order._customer.name"></td>
+        <td ng-bind="order._product.name"></td>
+        <td ng-bind="order.quantity"></td>
+        <td>{{order.created_at | date: "MMM. dd, yyyy"}}</td>
+     </tr>
+  </table>
+
+</section>
