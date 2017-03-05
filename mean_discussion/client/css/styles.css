@@ -1,0 +1,13 @@
+
+.posts{
+  background-color: silver;
+  margin-left: 40px;
+  width: 40%
+}
+.replies{
+  margin-left: 30px;
+  background-color: teal;
+}
+p{
+  color: red
+}

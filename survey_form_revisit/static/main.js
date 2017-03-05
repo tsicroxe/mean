@@ -1,4 +1,5 @@
 $(document).ready(function (){
+  console.log('working')
           // triggers the connection event in our server!
           var socket = io.connect();
           // submit data to the server using emit

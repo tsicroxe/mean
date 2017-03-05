@@ -1,0 +1,33 @@
+<section ng-controller='dashboardController as dc'>
+      <h1>
+            Welcome, {{user.name}}
+      </h1>
+      <form ng-submit='createCategory(category)'>
+            <label for="category_name">Create a category: <input type='text' ng-model='category.name' /></label>
+            <input type='submit' value='create category' />
+      </form>
+
+      <table>
+            <thead>
+                  <th>Category</th>
+                  <th>Topic</th>
+                  <th>User name</th>
+                  <th>Posts</th>
+            </thead>
+            <tbody>
+                  <tr ng-repeat='topic in topics track by $index '>
+                        <td width='200'>{{topic.categoryId.name}}</td>
+                        <td width='400'><a href='#!/topic/{{$index+1}}' ng-click='getTopic($index)' >{{topic.name}}</a></td>
+                        <td width='200'>{{topic.userId.name}}</td>
+                        <td ng-bind='{{topic.posts}}'></td>
+                  </tr>
+            </tbody>
+      </table>
+
+      <form ng-submit='createTopic(newTopic)'>
+            <label>Topic: <input type='text' ng-model='newTopic.name' /></label>
+            <label>Description: <input type='textarea' ng-model='newTopic.description' /></label>
+            <label>Category: <select ng-model='newTopic.categoryId' ng-options='category as category.name for category in categories track by category._id'></select></label>
+            <input type='submit' value='Create Topic' />
+      </form>
+</section>

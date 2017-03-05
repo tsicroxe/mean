@@ -1,0 +1,17 @@
+<section ng-controller='indexController as ic'>
+  <h1>Registration</h1>
+  <form id='registration' ng-submit='register(registration_form)'>
+    <label>Name: <input type='text' ng-model='registration_form.name' required/></label>
+    <label>Password: <input type='text' ng-model='registration_form.password' required/></label>
+    <input type='submit' value='register' />
+  </form>
+
+  <h1> Login</h1>
+  <form id='login' ng-submit='login(login_form)'>
+    <label>Name: <input type='text' ng-model='login_form.name' required/></label>
+    <label>Password: <input type='text' ng-model='login_form.password' required/></label>
+    <input type='submit' value='Login' />
+    {{errors.name}}
+  </form>
+
+</section>
