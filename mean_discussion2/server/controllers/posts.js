@@ -4,7 +4,6 @@ var Post = require('../models/post');
 module.exports = {
 
   index: function(req, res){
-    if (req.session && req.session.user) {
     Post.find({})
     .populate('user topic category comments')
     .exec(function(err, posts){
@@ -14,12 +13,7 @@ module.exports = {
     	else {
     		res.json({success: true, posts});
     	}
-    });
-  }
-    else{
-      console.log('no req.session, returning with json success as false')
-      res.json({success: false, message: 'No req.session, redirecting to dashboard'})
-    }
+    })
   },
 
   // index: function(req, res){
@@ -59,5 +53,21 @@ module.exports = {
       }
     })
   },
+
+  updatePost: function(req, res){
+    console.log('req.body', req.body)
+    console.log('comment', req.params)
+    Post.findOneAndUpdate(req.body, {$push:{comments: req.params.comment}}, function(err, updatedPost){
+      if (err){
+        console.log(err)
+        res.json({success: false, err})
+      }
+      else{
+        console.log(updatedPost)
+        res.json({success: true, post:updatedPost})
+
+      }
+    })
+  }
 
 }

@@ -22,11 +22,14 @@ module.exports = function(app){
 	app.post('/dashboard/category', categories.createCategory)
 
 	app.get('/topic/posts', posts.index)
-	app.post('/topic/:id', posts.createPost)
 
+	app.post('/topic/post', posts.createPost)
+
+	app.post('/topic/comment', comments.createComment)
 	app.get('/topic/comments', comments.index)
-	app.post('/topic/:id/comments', comments.createComment)
+	app.post('/topic/post/:comment', posts.updatePost)
 
+	app.get('/dashboard/topic/:id', topics.getTopic)
 	app.get('/dashboard/topics', topics.index),
 	app.post('/dashboard/topic', topics.createTopic)
 

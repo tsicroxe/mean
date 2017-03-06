@@ -72,9 +72,10 @@ var usersController = {
                   .then(function(){
                         req.session.user = user;
                         req.session.user.password = ''
-                        console.log(user._id)
-                        console.log(req.session.user)
-                        res.cookie('userId', user._id)
+
+                        userId = user._id.toString()
+
+                        res.cookie('userId', userId)
                         res.cookie('first_name', user.first_name)
                         res.cookie('expiration', Date.now() + 86400 * 1000 )
                         res.json({success: true, userId : user._id})

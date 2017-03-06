@@ -17,9 +17,9 @@
                       <th>Posts</th>
                 </thead>
                 <tbody>
-                      <tr ng-repeat='topic in topics track by $index '>
+                      <tr ng-repeat='topic in topics track by topic._id '>
                             <td width='200'>{{topic.category.name}}</td>
-                            <td width='400'><a href='#!/topic/{{$index+1}}' ng-click='getTopic($index)' >{{topic.name}}</a></td>
+                            <td width='400'><a href='#!/topic/{{topic._id}}' ng-click='getTopic(topic._id)' >{{topic.name}}</a></td>
                             <td width='200'>{{topic.user.first_name}}</td>
                             <td ng-bind='{{topic.posts}}'></td>
                       </tr>

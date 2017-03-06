@@ -9,10 +9,9 @@ app.factory('usersFactory', ['$http', '$cookies', function($http, $cookies){
   var users = []
   var user = {}
 
-  console.log(users)
 
   function UsersFactory(){
-    console.log('future home of the users factory object')
+    console.log('usersFactory')
 
 
   // this.getUsers = function(callback){
@@ -51,10 +50,14 @@ app.factory('usersFactory', ['$http', '$cookies', function($http, $cookies){
     console.log(user)
     callback(user);
   };
-  
+
 
   this.fetchUsers = function(callback){
     callback(users);
+  };
+
+  this.fetchPosts = function(callback){
+    callback(posts);
   };
 
   this.register = function(registration_form){

@@ -13,7 +13,8 @@ app.controller('dashboardController', ['$scope', '$location', '$cookies', 'users
   $scope.users = []
   $scope.categories = []
   $scope.topics = []
-
+  $scope.posts = []
+  $scope.topic = {}
 
 
   getCategories()
@@ -46,6 +47,8 @@ app.controller('dashboardController', ['$scope', '$location', '$cookies', 'users
 
 
   //Begin Topics
+
+
   function getTopics (){
     df.getTopics()
     .then(function(data){
@@ -77,6 +80,38 @@ app.controller('dashboardController', ['$scope', '$location', '$cookies', 'users
   }
   //End Categories
 
+
+  //Begin Posts
+  function getPosts (){
+    df.getPosts()
+    .then(function(data){
+      console.log('post data', data)
+      fetchPosts()
+    })
+  }
+
+  function fetchPosts(){
+    df.fetchPosts(function(data){
+      $scope.posts = data
+    })
+  }
+
+  $scope.createPost = function(post){
+    // topic.category= topic.category._id
+    //
+    // uf.fetchUser(function(data){
+    //     topic.user = data.id
+    // })
+    // console.log(topic)
+    //
+    // df.createTopic(topic)
+    // .then(function(data){
+    //   console.log('returned data', data)
+    // })
+    // getTopics()
+    // $scope.topic = {}
+  }
+  //End Categories
 
 
   // $scope.checkCookie = function(){

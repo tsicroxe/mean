@@ -36,6 +36,22 @@ module.exports = {
     })
   },
 
+  getTopic: function(req, res){
+    console.log(req.params.id)
+    Topic.findOne({_id: req.params.id})
+    .populate('user category')
+    .exec(function(err, topic){
+      if(err){
+        console.log('errors', err)
+      }
+      else{
+        console.log('returning this topoic', topic)
+        res.json({success: true, topic})
+      }
+    })
+  },
+
+
 
 
 

@@ -13,6 +13,11 @@ var app = angular.module('app', ['ngRoute', 'ngCookies'])
       controller: 'dashboardController',
       controllerAs: 'oc'
     })
+    .when('/topic/:id', {
+      templateUrl: 'partials/_topic.ejs',
+      controller: 'topicController',
+      controllerAs: 'tc'
+    })
     .otherwise({
       redirectTo: '/'
     })
